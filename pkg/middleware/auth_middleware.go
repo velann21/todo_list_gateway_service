@@ -53,7 +53,7 @@ func Authentication() mux.MiddlewareFunc {
 
 			handler.ServeHTTP(w, req)
 			logrus.WithField("EventType", "Authentication").WithField("Action","Request").Info("Authentication Ends")
-			return
+			//return
 		})}}
 
 
