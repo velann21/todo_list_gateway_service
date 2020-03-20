@@ -15,7 +15,10 @@ func UserServicesController(response http.ResponseWriter, req *http.Request) {
 	finalResp := responses.Response{}
 	if err != nil{
 		logrus.WithField("EventType", eventType).WithField("TraceID", traceID).WithError(err).Error("UserServiceOrchestrator Failed")
-		finalResp.Response(response, resp.StatusCode, resp.Body)
+		if resp != nil{
+			finalResp.Response(response, resp.StatusCode, resp.Body)
+			return
+		}
 		return
 	}
 	finalResp.Response(response, resp.StatusCode, resp.Body)

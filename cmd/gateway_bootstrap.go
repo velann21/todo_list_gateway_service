@@ -3,7 +3,6 @@ package main
 import (
 	"github.com/gorilla/mux"
 	"github.com/sirupsen/logrus"
-	"github.com/todo_list_gateway_service/pkg/helpers"
 	"github.com/todo_list_gateway_service/pkg/middleware"
 	"github.com/todo_list_gateway_service/pkg/routes"
 	"log"
@@ -13,7 +12,7 @@ import (
 
 func main(){
 	logrus.SetFormatter(&logrus.JSONFormatter{TimestampFormat:time.RFC3339,})
-    helpers.SetEnv()
+    //helpers.SetEnv()
 	r := mux.NewRouter().StrictSlash(false)
 	r.Use(middleware.TraceLogger())
 	r.Use(middleware.Authentication())

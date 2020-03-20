@@ -21,8 +21,8 @@ release-tag: build
 	git push --tags
 
 release: release-tag
-	cd ../docker; docker build -t "singaravelan21/gateway_bootstrap" . --no-cache;
-	cd ../docker; docker tag "singaravelan21/gateway_bootstrap" "singaravelan21/gateway_bootstrap:`cat ../.version`";
-	cd ../docker; docker push "singaravelan21/gateway_bootstrap:`cat ../.version`"
+	cd ../docker; docker build -t "singaravelan21/todo_list_gateway_srv" . --no-cache;
+	cd ../docker; docker tag "singaravelan21/todo_list_gateway_srv" "singaravelan21/todo_list_gateway_srv:`cat ../.version`";
+	cd ../docker; docker push "singaravelan21/todo_list_gateway_srv:`cat ../.version`"
 	make docker-build-cleanup
 
