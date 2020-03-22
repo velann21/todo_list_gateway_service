@@ -13,12 +13,14 @@ spec:
     spec:
       containers:
         - name: gatwaysrv
-          image: singaravelan21/todo_list_gateway_srv:v1.0.7
+          image: singaravelan21/todo_list_gateway_srv:v1.0.12
           env:
             - name: USERSRV_HOST
               value: http://todolistusersrv:8081
             - name:  AUTHSRV_HOST
               value: http://todolistauthsrv:8083
+            - name: TODOSRV_HOST
+              value: http://todolistsrv:8086
   replicas: 3
   selector:
     matchLabels:
@@ -29,10 +31,9 @@ kind: Service
 metadata:
   name: todolistgatwayservice
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: gatwaysrv
   ports:
     - targetPort: 8080
-      port: 8080
-      nodePort: 30006
+      port: 80
