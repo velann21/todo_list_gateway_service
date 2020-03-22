@@ -1,4 +1,4 @@
 dist/
-.idea
+.idea/
 .idea/workspace.xml
 docker/gateway_bootstrap

@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: gatwaysrv
-          image: singaravelan21/todo_list_gateway_srv:v1.0.12
+          image: singaravelan21/todo_list_gateway_srv:v1.0.13
           env:
             - name: USERSRV_HOST
               value: http://todolistusersrv:8081
