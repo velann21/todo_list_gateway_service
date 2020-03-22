@@ -30,7 +30,12 @@ var permissions = map[string]string{
 	"/api/v1/users/roles" : PRIVATE,
 	"/api/v1/users/createRoles" : PUBLIC,
 	"/api/v1/users/migrateDB" : PUBLIC,
-
+    "/api/v1/todo/create" : PRIVATE,
+    "/api/v1/todo/getUserActivites" : PRIVATE,
+    "/api/v1/todo/get":PRIVATE,
+    "/api/v1/todo/update":PRIVATE,
+    "/api/v1/todo/delete":PRIVATE,
+    "/api/v1/todo/dueDateRange":PRIVATE,
 }
 
 func GetPermission() map[string]string{

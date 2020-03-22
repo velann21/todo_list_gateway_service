@@ -1,6 +1,7 @@
 package Orchestraters
 
 import (
+	"github.com/sirupsen/logrus"
 	"github.com/todo_list_gateway_service/pkg/helpers"
 	"io/ioutil"
 	"net/http"
@@ -12,9 +13,24 @@ func UserServiceOrchestrator(req *http.Request) (*http.Response, error) {
 	if err != nil{
 		return nil, err
 	}
+	logrus.Info("Inside the ")
+	logrus.Info(helpers.ReadEnv(helpers.USERSRV_HOST)+url.Path+"?"+url.Query().Encode())
 	resp , err := helpers.HttpRequest(req.Method, req, helpers.ReadEnv(helpers.USERSRV_HOST)+url.Path+"?"+url.Query().Encode(), body)
 	if err!= nil{
        return nil, err
+	}
+	return  resp, nil
+}
+
+func TodoServiceOrchestrator(req *http.Request) (*http.Response, error) {
+	url := req.URL
+	body, err := ioutil.ReadAll(req.Body)
+	if err != nil{
+		return nil, err
+	}
+	resp , err := helpers.HttpRequest(req.Method, req, helpers.ReadEnv(helpers.TODOSRV_HOST)+url.Path+"?"+url.Query().Encode(), body)
+	if err!= nil{
+		return nil, err
 	}
 	return  resp, nil
 }

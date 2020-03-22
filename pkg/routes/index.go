@@ -8,6 +8,7 @@ import (
 
 func Routes(routes *mux.Router){
 	routes.PathPrefix("/api/v1/users/").HandlerFunc(controller.UserServicesController)
+	routes.PathPrefix("/api/v1/todo/").HandlerFunc(controller.TodoServicesController)
 }
 
 

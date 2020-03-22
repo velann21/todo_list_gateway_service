@@ -64,6 +64,8 @@ func validate(route string, req *http.Request)(responses.Response,  error){
 	metaArr := make(map[string]interface{}, 0)
 	if isRoutePresent != "" {
 		if isRoutePresent == permissions.PUBLIC{
+			logrus.Print("Yes its public api:  ")
+			logrus.Info(route)
 			return responses.Response{"200", dataArr ,metaArr}, nil
 		}
 		resp, err := Orchestraters.AuthServiceValidateTokenOrchestrator(req)

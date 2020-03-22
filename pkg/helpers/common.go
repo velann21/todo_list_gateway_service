@@ -9,6 +9,7 @@ import (
 
 const (
 	USERSRV_HOST = "USERSRV"
+	TODOSRV_HOST = "TODOSRV"
     AUTHSRV_HOST = "AUTHSRV"
 )
 func HttpRequest(methodType string,actualReq *http.Request, Url string,body []byte) (*http.Response, error){
@@ -32,6 +33,8 @@ func ReadEnv(envType string) string{
 		return os.Getenv("USERSRV_HOST")
 	case AUTHSRV_HOST:
 		return os.Getenv("AUTHSRV_HOST")
+	case TODOSRV_HOST:
+		return os.Getenv("TODOSRV_HOST")
 	default:
 		return ""
 	}
@@ -40,4 +43,5 @@ func ReadEnv(envType string) string{
 func SetEnv(){
 	os.Setenv("USERSRV_HOST", "http://localhost:8081")
 	os.Setenv("AUTHSRV_HOST","http://localhost:8083")
+	os.Setenv("TODOSRV_HOST", "http://localhost:8086")
 }
