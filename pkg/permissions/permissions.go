@@ -27,7 +27,7 @@ var permissions = map[string]string{
 	"/api/v1/users/signin" : PUBLIC,
 	"/api/v1/users/signup" : PUBLIC,
 	"/api/v1/users/getUserDetails" : PRIVATE,
-	"/api/v1/users/roles" : PRIVATE,
+	"/api/v1/users/roles" : PUBLIC,
 	"/api/v1/users/createRoles" : PUBLIC,
 	"/api/v1/users/migrateDB" : PUBLIC,
     "/api/v1/todo/create" : PRIVATE,
