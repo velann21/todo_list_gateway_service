@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gateway-srv-deployment
+  labels:
+    app: gatewaysrv
+spec:
+  template:
+    metadata:
+      name: gatewaypod
+      labels:
+        app: gatwaysrv
+    spec:
+      containers:
+        - name: gatwaysrv
+          image: singaravelan21/todo_list_gateway_srv:v1.0.12
+          env:
+            - name: USERSRV_HOST
+              value: http://todolistusersrv:8081
+            - name:  AUTHSRV_HOST
+              value: http://todolistauthsrv:8083
+            - name: TODOSRV_HOST
+              value: http://todolistsrv:8086
+  replicas: 3
+  selector:
+    matchLabels:
+      app: gatwaysrv
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: todolistgatwayservice
+spec:
+  type: LoadBalancer
+  selector:
+    app: gatwaysrv
+  ports:
+    - targetPort: 8080
+      port: 80
