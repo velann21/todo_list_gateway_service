@@ -10,6 +10,7 @@ type GrpcActivityManagerService struct {
 }
 
 func (am GrpcActivityManagerService) CreateTodoList(ctx context.Context, request *proto.CreateTodoListRequest)(*proto.CreateTodoListResponse,error){
+	fmt.Println("Hello service:  ",am.ActivityManager)
 	fmt.Println(am.ActivityManager)
 	resp, err := am.ActivityManager.CreateTodo(ctx, request)
 	if err!=nil{
