@@ -19,7 +19,7 @@ func main(){
 	r := mux.NewRouter().StrictSlash(false)
 	r.Use(middleware.TraceLogger())
 	r.Use(middleware.Authentication())
-	amConn, err := grpc.Dial("http://todolistsrv:50051",grpc.WithInsecure())
+	amConn, err := grpc.Dial("http://todolistsrv:50051", grpc.WithInsecure())
 	if err != nil{
 		logrus.Error("Something went wrong while calling AM grpc server")
 		os.Exit(1)
