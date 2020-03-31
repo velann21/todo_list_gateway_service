@@ -24,7 +24,7 @@ func main(){
 
 	resolver.SetDefaultScheme("dns")
 	amConn, err := grpc.Dial(
-		"todolistsrv:50051",
+		"todolistsrv1:50051",
 		grpc.WithInsecure(),
 		grpc.WithBalancerName(roundrobin.Name),
 	)
