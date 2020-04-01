@@ -33,6 +33,9 @@ func main(){
 		logrus.Error("Something went wrong while calling AM grpc server")
 		os.Exit(1)
 	}
+	logrus.Info("Connection made grpc ", amConn)
+	logrus.Info(amConn.GetState(), " State is")
+	logrus.Info(amConn.Target(), " Target is")
 	amClient := proto.NewTodoActivityManagerClient(amConn)
 	configuration := routes.Configuration{amClient}
 	configuration.Routes(r)
