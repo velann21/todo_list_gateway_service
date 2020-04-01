@@ -16,7 +16,10 @@ import (
 )
 
 func main(){
+
 	logrus.SetFormatter(&logrus.JSONFormatter{TimestampFormat:time.RFC3339,})
+	logrus.Info("Iside Main")
+
     //helpers.SetEnv()
 	r := mux.NewRouter().StrictSlash(false)
 	r.Use(middleware.TraceLogger())
