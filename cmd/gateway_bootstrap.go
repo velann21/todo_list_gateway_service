@@ -26,10 +26,12 @@ func main(){
 	r.Use(middleware.Authentication())
 
 	resolver.SetDefaultScheme("dns")
+
 	amConn, err := grpc.Dial(
 		"todolistsrv1:50051",
 		grpc.WithInsecure(),
-		grpc.WithBalancerName(roundrobin.Name),
+		grpc.WithDefaultServiceConfig(roundrobin.Name),
+		//grpc.WithBalancerName(roundrobin.Name),
 	)
 	//amConn, err := grpc.Dial("todolistsrv:50051", grpc.WithInsecure())
 	if err != nil{
