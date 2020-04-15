@@ -1,0 +1,5 @@
+replicaCount: 3
+tag: v1.0.13
+usersrvHost: http://todolistusersrv:8081
+authsrvHost: http://todolistauthsrv:8083
+todosrvHost: http://todolistsrv:8086

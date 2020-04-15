@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gateway-srv-deployment
+  labels:
+    app: gatewaysrv
+spec:
+  template:
+    metadata:
+      name: gatewaypod
+      labels:
+        app: gatwaysrv
+    spec:
+      containers:
+        - name: gatwaysrv
+          image: singaravelan21/todo_list_gateway_srv:{{ .Values.tag }}
+          env:
+            - name: USERSRV_HOST
+              value: {{ .Values.usersrvHost }}
+            - name:  AUTHSRV_HOST
+              value: {{ .Values.authsrvHost }}
+            - name: TODOSRV_HOST
+              value: {{ .Values.todosrvHost }}
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: gatwaysrv
