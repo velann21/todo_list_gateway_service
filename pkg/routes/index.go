@@ -12,7 +12,6 @@ type Configuration struct {
 	ActivityManager proto.TodoActivityManagerClient
 }
 func (conf *Configuration)Routes(routes *mux.Router){
-	routes.PathPrefix("/api/v1/gateway/touser").HandlerFunc(controller.UserServicesController)
 	routes.PathPrefix("/api/v1/todo/create").HandlerFunc(NewController(conf).CreateTodoController)
 	routes.PathPrefix("/api/v1/users/").HandlerFunc(controller.UserServicesController)
 	routes.PathPrefix("/api/v1/todo/").HandlerFunc(controller.TodoServicesController)
