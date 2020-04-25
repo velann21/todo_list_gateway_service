@@ -18,7 +18,7 @@ import (
 func main(){
 
 	logrus.SetFormatter(&logrus.JSONFormatter{TimestampFormat:time.RFC3339,})
-	logrus.Info("Inside Main")
+	logrus.Info("Inside the Main")
 
     //helpers.SetEnv()
 	r := mux.NewRouter().StrictSlash(false)
@@ -26,7 +26,6 @@ func main(){
 	r.Use(middleware.Authentication())
 
 	resolver.SetDefaultScheme("dns")
-
 	amConn, err := grpc.Dial(
 		"todolistsrv1:50051",
 		grpc.WithInsecure(),
@@ -37,8 +36,7 @@ func main(){
 		os.Exit(1)
 	}
 	logrus.Info("Connection made grpc ", amConn)
-	logrus.Info(amConn.GetState(), " State is")
-	logrus.Info(amConn.Target(), " Target is")
+
 	amClient := proto.NewTodoActivityManagerClient(amConn)
 	configuration := routes.Configuration{amClient}
 	configuration.Routes(r)
