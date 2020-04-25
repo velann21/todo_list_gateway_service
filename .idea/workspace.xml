@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="afa87ce6-41cc-46c8-8327-fe439c877c82" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/cmd/gateway_bootstrap.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gateway_bootstrap.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployments/.version" beforeDir="false" afterPath="$PROJECT_DIR$/deployments/.version" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,11 +12,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cmd/gateway_bootstrap.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
+            <state relative-caret-position="100">
+              <caret line="38" selection-start-line="38" selection-end-line="38" />
               <folding>
                 <element signature="e#14#273#0" expanded="true" />
               </folding>
@@ -69,11 +69,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/deployments/.version">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="6" selection-end-column="11" />
+              <caret column="7" selection-start-column="7" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -151,8 +151,8 @@
         <option value="$PROJECT_DIR$/pkg/controller/grpc_controllers.go" />
         <option value="$PROJECT_DIR$/pkg/Orchestraters/grpc_orchestrator.go" />
         <option value="$PROJECT_DIR$/pkg/routes/index.go" />
-        <option value="$PROJECT_DIR$/deployments/.version" />
         <option value="$PROJECT_DIR$/cmd/gateway_bootstrap.go" />
+        <option value="$PROJECT_DIR$/deployments/.version" />
       </list>
     </option>
   </component>
@@ -549,13 +549,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deployments/.version">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="6" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pkg/middleware/auth_middleware.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="227">
@@ -565,11 +558,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cmd/gateway_bootstrap.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
+        <state relative-caret-position="100">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
           <folding>
             <element signature="e#14#273#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deployments/.version">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
         </state>
       </provider>
     </entry>
