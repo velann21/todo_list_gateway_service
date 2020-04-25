@@ -3,7 +3,6 @@ package main
 import (
 	"github.com/gorilla/mux"
 	"github.com/sirupsen/logrus"
-	"github.com/todo_list_gateway_service/pkg/middleware"
 	"github.com/todo_list_gateway_service/pkg/routes"
 	proto "github.com/velann21/todo_list_activity_manager/pkg/proto"
 	"google.golang.org/grpc"
@@ -18,22 +17,20 @@ import (
 func main(){
 
 	logrus.SetFormatter(&logrus.JSONFormatter{TimestampFormat:time.RFC3339,})
-	logrus.Info("Iside Main")
+	logrus.Info("Inside Main")
 
     //helpers.SetEnv()
 	r := mux.NewRouter().StrictSlash(false)
-	r.Use(middleware.TraceLogger())
-	r.Use(middleware.Authentication())
+	//r.Use(middleware.TraceLogger())
+	//r.Use(middleware.Authentication())
 
 	resolver.SetDefaultScheme("dns")
 
 	amConn, err := grpc.Dial(
 		"todolistsrv1:50051",
 		grpc.WithInsecure(),
-		grpc.WithDefaultServiceConfig(roundrobin.Name),
-		//grpc.WithBalancerName(roundrobin.Name),
+		grpc.WithBalancerName(roundrobin.Name),
 	)
-	//amConn, err := grpc.Dial("todolistsrv:50051", grpc.WithInsecure())
 	if err != nil{
 		logrus.Error("Something went wrong while calling AM grpc server")
 		os.Exit(1)
