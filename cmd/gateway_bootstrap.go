@@ -24,7 +24,7 @@ func main(){
 	r := mux.NewRouter().StrictSlash(false)
 	r.Use(middleware.TraceLogger())
 	r.Use(middleware.Authentication())
-
+	logrus.Info("Passed the middleware")
 	resolver.SetDefaultScheme("dns")
 	amConn, err := grpc.Dial(
 		"todolistsrv1:50051",
