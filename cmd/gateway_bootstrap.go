@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/gorilla/mux"
 	"github.com/sirupsen/logrus"
 	"github.com/todo_list_gateway_service/pkg/middleware"
@@ -30,6 +31,7 @@ func main(){
 		grpc.WithInsecure(),
 		//grpc.WithBalancerName(roundrobin.Name),
 	)
+	fmt.Println("Its not a client side LB")
 	if err != nil{
 		logrus.Error("Something went wrong while calling AM grpc server")
 		os.Exit(1)
