@@ -7,7 +7,6 @@ import (
 	"github.com/todo_list_gateway_service/pkg/routes"
 	proto "github.com/velann21/todo_list_activity_manager/pkg/proto"
 	"google.golang.org/grpc"
-	"google.golang.org/grpc/balancer/roundrobin"
 	"google.golang.org/grpc/resolver"
 	"log"
 	"net/http"
@@ -29,7 +28,7 @@ func main(){
 	amConn, err := grpc.Dial(
 		"todolistsrv1:50051",
 		grpc.WithInsecure(),
-		grpc.WithBalancerName(roundrobin.Name),
+		//grpc.WithBalancerName(roundrobin.Name),
 	)
 	if err != nil{
 		logrus.Error("Something went wrong while calling AM grpc server")
